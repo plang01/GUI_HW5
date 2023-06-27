@@ -1,0 +1,47 @@
+<!-- 
+    File: index.html
+    GUI Assignment: Use Jquery plugin to add tab and slider widget
+    Phat Lang, UMass Lowell Computer Science, Phat_Lang@student.uml.edu
+    What to submit: Readme file with Github URL and link to repository, a zip file contains the code 
+    Description: Modify existing codes to add in tab and slider sections
+    Copyright (c) 2023 by Phat Lang. All rights reserved. May be freely copied or
+    excerpted for educational purposes with credit to the author. Updated by Phat Lang on June 22 at 12:21 p.m
+    References/Citations: I used W3Schools, Boostrap for references.  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <title>Scrabble</title>
+</head>
+<body>
+    <div id="container">
+        <h1> Scrabble</h1>
+            <img class="col-sm-12 board" src="graphics_data/Scrabble_Board_OneLine.png" alt="board">
+
+            <div class="holder col-sm-12">
+                <img class="col-sm-12" src="graphics_data/scrabble-tile-holder-406774_640.png" alt="tile-holder">
+            </div>
+            <!-- <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_A.jpg" draggable="false"> -->
+            <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_B.jpg" draggable="false" />
+            <img class="t2" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_F.jpg" draggable="false"/>
+            <img class="t3" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_C.jpg" draggable="false"/>
+            <img class="t4" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_D.jpg" draggable="false"/>
+        <!-- </div> -->
+    </div>
+    
+    <p>
+        Mouse pos: <b><span id="mouse-pos"></span></b>
+      </p>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="javascript/script.js"></script>
+</body>
+</html>
