@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
+    <script src="javascript/script.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>Scrabble</title>
 </head>
 <body>
@@ -31,17 +32,29 @@
                 <img class="col-sm-12" src="graphics_data/scrabble-tile-holder-406774_640.png" alt="tile-holder">
             </div>
             <!-- <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_A.jpg" draggable="false"> -->
-            <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_B.jpg" draggable="false" />
-            <img class="t2" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_F.jpg" draggable="false"/>
+            <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_A.jpg" draggable="false" />
+            <img class="t2" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_B.jpg" draggable="false"/>
             <img class="t3" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_C.jpg" draggable="false"/>
             <img class="t4" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_D.jpg" draggable="false"/>
+            <img class="t5" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_E.jpg" draggable="false"/>
+            <img class="t6" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_F.jpg" draggable="false"/>
+            <img class="t7" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_G.jpg" draggable="false"/>
         <!-- </div> -->
+
+        <div class="col-sm-6 col-sm-offset-3 info">
+            <h3 class="col-sm-12 totalPoint"> Total Point: </h3>
+            <h3 class="col-sm-12 point"> Point</h3>
+            <button class="btn-sm submit" onclick="hi()">Submit Word</button>
+            <button class="btn-sm restart">Restart Game</button>
+        </div>
+        <p>
+            Mouse pos: <b><span id="mouse-pos"></span></b>
+          </p>
     </div>
-    
-    <p>
+    <!-- <p>
         Mouse pos: <b><span id="mouse-pos"></span></b>
-      </p>
+      </p> -->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="javascript/script.js"></script>
+    <!-- <script src="javascript/script.js"></script> -->
 </body>
 </html>
