@@ -1,60 +1,6 @@
 // http://jsfiddle.net/djjL16p2/
 // https://codingbeautydev.com/blog/javascript-get-mouse-position/#:~:text=To%20get%20the%20current%20position,coordinates%20of%20the%20mouse%20respectively.
 
-// $.ajax({
-//     url: "pieces.json",
-//     dataType: "json",
-//     type: "get",
-//     cache: false,
-//     success:function(data){
-//       // $(data.pieces).each(function(index, value){
-//       //   console.log(value.letter);
-//       // });
-//       // var jObject = JSON.parse(data);
-//       // console.log(jObject);
-//       // console.log(data);
-//       // data.pieces[0].letter = "BYe";
-//     //   console.log(data.pieces[0].letter);
-    
-    
-//         for(var i = 0; i < 10; i++){
-//             var letter = getLetter(data);
-//             // console.log(letter);
-//             $(data.pieces).each(function(index, value){
-//                 if(letter == value.letter) {
-//                     value.amount--;
-//                     // console.log(value.amount);
-//                 }
-//             });
-//         }
-//     }
-// });
-
-// $.getJSON("pieces.json", function(data) {
-//     for(var i = 0; i < 10; i++){
-//                     var letter = getLetter(data);
-//                     console.log(letter);
-//                     $(data.pieces).each(function(index, value){
-//                         if(letter == value.letter) {
-//                             value.amount--;
-//                             console.log(value.amount);
-//                         }
-//                     });
-//                 }
-// });
-
-// function getLetter(jsonObject){
-//     var prob = [];
-//     $(jsonObject.pieces).each(function(index, value){
-//         for(var i = 0; i < value.amount;i++) {
-//             prob.push(value.letter);
-//         }
-//     })
-//     // prob.push(jsonObject.pieces[0].amount / 100);
-//     var idx = Math.floor(Math.random() * prob.length);
-//     return prob[idx];
-//     // console.log(jsonObject.pieces[0].letter);
-// }
 
 let boardGrid=[];
 let letterPiece=[];
@@ -110,8 +56,8 @@ function createGrid(){
 // }
 
 
-
-
+var moving = false;
+var y =0
 // window.onload = function(){
 $(function(){
     var point = 0;
@@ -132,8 +78,9 @@ $(function(){
         // for(var i = 0; i < letterPiece.length; i++) {
         //     console.log(letterPiece[i].value);
         // }
-        console.log(point);
+        // console.log(point);
     });
+
 
     var piece1 = $(".t1");
     var piece2 = $(".t2");
@@ -142,9 +89,8 @@ $(function(){
     var piece5 = $(".t5");
     var piece6 = $(".t6");
     var piece7 = $(".t7");
-    var moving = false;
-    var x = $(".t1").offsetLeft;
-    var y = $(".t1").offset().top;;
+    // var x = $(".t1").offsetLeft;
+    y = $(".t1").offset().top;;
     piece1[0].addEventListener("mousedown", initialClick);
     piece2[0].addEventListener("mousedown", initialClick)
     piece3[0].addEventListener("mousedown", initialClick)
@@ -152,22 +98,41 @@ $(function(){
     piece5[0].addEventListener("mousedown", initialClick);
     piece6[0].addEventListener("mousedown", initialClick)
     piece7[0].addEventListener("mousedown", initialClick)
+ 
+})
 
+function submit(){
+    // console.log(dataObject);
+    for(var i = 0; i < letterPiece.length; i++) {
+        if(letterPiece[i].occupy != -1) {
 
-//get cursor position
-// const mousePosText = document.getElementById('mouse-pos');
-// let mousePos = { x: undefined, y: undefined };
+            letter = getLetter(dataObject);
+            console.log(letter);
+        }
+    }
+    resetPos();
+    upload(dataObject);
+    var currentPoint = $(".point").text().substring(7);
+    var temp = $(".totalPoint").text().substring(14);
+    // console.log(temp);
+    var totalPoint = Number(currentPoint) + Number(temp);
+    // console.log(totalPoint);
+   var b = $(".totalPoint").text().replace(temp, totalPoint);
+   $(".totalPoint").text(b);
+   $(".point").text("Point: 0");
+}
 
-// window.addEventListener('mousemove', (event) => {
-//   mousePos = { x: event.clientX, y: event.clientY };
-//   mousePosText.textContent = `(${mousePos.x}, ${mousePos.y})`;
-// });
+function resetPos() {
+    for(var i = 0; i < letterPiece.length; i++) {
+       $("." + letterPiece[i].name)[0].style.left = letterPiece[i].pos + "px";
+       $("." + letterPiece[i].name)[0].style.top = y + "px";
+    }
+}
 
-// window.addEventListener('mousedown', (event) => {
-//     mousePos = { x: event.clientX, y: event.clientY };
-//     mousePosText.textContent = `(${mousePos.x}, ${mousePos.y})`;
-// });
-
+function restart() {
+    console.log("hi");
+    location.reload();
+}
 
 function checkPosition(piecePosX, piecePosY, pieceId, boardPos ) {
     var status = false;
@@ -181,23 +146,6 @@ function checkPosition(piecePosX, piecePosY, pieceId, boardPos ) {
     // console.log(letterPiece[currentPiece].name);
     if (piecePosY > 68 && piecePosY < 118){
         for(var i = 0; i <= 14; i++) {
-            // if (letterPiece[currentPiece].name == boardGrid[i].name){
-            //     console.log("occupy: " + i);
-            //     status = true;
-            //     boardGrid[i].isEmpty = false;
-            //     boardGrid[i].slot = i;
-            //     boardGrid[i].name = pieceId.attr("class");
-            //     t = letterPiece[currentPiece].occupy;
-            //     if(t != -1) {
-            //         console.log("change to" + t);
-            //         boardGrid[t].isEmpty = true;
-            //         // boardGrid[t].name = "none" 
-            //         // letterPiece[currentPiece].occupy = i;
-            //     }
-            //     letterPiece[currentPiece].occupy = i;
-            //     break;
-            // }
-            // console.log(letterPiece[currentPiece].name);
             if(piecePosX > boardGrid[i].leftPosition && piecePosX < boardGrid[i].rightPosition && boardGrid[i].isEmpty == true){
                 status = true;
                 boardGrid[i].isEmpty = false;
@@ -209,7 +157,6 @@ function checkPosition(piecePosX, piecePosY, pieceId, boardPos ) {
                 }
                 letterPiece[currentPiece].occupy = i;
                 break;
-                console.log("bitch: " + i);
             }
             if (letterPiece[currentPiece].name == boardGrid[i].name && piecePosX > boardGrid[i].leftPosition && piecePosX < boardGrid[i].rightPosition){
                 console.log("how?");
@@ -312,10 +259,49 @@ function getLetter(jsonObject){
     // prob.push(jsonObject.pieces[0].amount / 100);
     var idx = Math.floor(Math.random() * prob.length);
     if(prob[idx] == "_") {
-        piece.push("Blank");
+        for(var i = 0; i < letterPiece.length; i++){
+            if (letterPiece[i].occupy == -1 && piece.length < 7) {
+                piece.push("Blank");
+                break;
+            }
+            else if (letterPiece[i].occupy != -1 && piece.length >= 7) {
+                var idx = letterPiece[i].occupy;
+                boardGrid[idx].isEmpty = true;
+                boardGrid[idx].slot = -1;
+                boardGrid[idx].name = "none"
+                letterPiece[i].occupy = -1;
+                piece[i] = "Blank";
+                break;
+            }
+        }
     }
     else{
-        piece.push(prob[idx]);
+        for(var i = 0; i < letterPiece.length; i++){
+            // if(letterPiece[i].occupy == -1){
+            //     if(piece.length >= 7) {
+            //         piece[i] = prob[idx];
+            //         console.log("fuck");
+            //     }
+            //     else{
+            //         piece.push(prob[idx]);
+            //     }
+            //     break;
+
+            if (letterPiece[i].occupy == -1 && piece.length < 7) {
+                piece.push(prob[idx]);
+                break;
+            }
+            else if (letterPiece[i].occupy != -1 && piece.length >= 7) {
+                var idx = letterPiece[i].occupy;
+                boardGrid[idx].isEmpty = true;
+                boardGrid[idx].slot = -1;
+                boardGrid[idx].name = "none"
+                letterPiece[i].occupy = -1;
+                piece[i] = prob[idx];
+                break;
+            }
+        }
+        // piece.push(prob[idx]);
     }
     
     $(jsonObject).each(function(index, value){
@@ -328,25 +314,26 @@ function getLetter(jsonObject){
 }
 
 function upload(jsonObject) {
+    console.log(piece.length);
     for(var i = 0; i < piece.length; i++) {
         var id = ".t" + Number(i+1);
         var img_path = "graphics_data/Scrabble_Tiles/Scrabble_Tile_" + piece[i] + ".jpg";
         $(id).attr("src", img_path);
     }
-
+    
     for(var i =0; i < piece.length; i++) {
         if(piece[i] == "Blank") {
             letterPiece[i].value = 0;
         }
         else {
             var index = jsonObject.findIndex(item => item.letter === piece[i]);
-            // console.log(jsonObject[index].value);
+            // console.log(index);
             letterPiece[i].value = jsonObject[index].value;
 
-            console.log(letterPiece[i].value);
+            // console.log(letterPiece[i].value);
         }
     }
 } 
 
 
-});
+// });
