@@ -1,3 +1,15 @@
+/* 
+    File: style.css
+    GUI Assignment: Implement part of the game Scrabble with drag-and-drop
+    Phat Lang, UMass Lowell Computer Science, Phat_Lang@student.uml.edu
+    What to submit: Readme file with Github URL and link to repository, a zip file contains the code, 
+    and a writeup describing what's working and what's not
+    Description: Style the page, it's NOT responsive
+    Copyright (c) 2023 by Phat Lang. All rights reserved. May be freely copied or
+    excerpted for educational purposes with credit to the author. Updated by Phat Lang on July 1 at 2:00 p.m
+    References/Citations: I used W3Schools for references.    
+*/
+
 #container{
     width:100%;
     height:100%;
@@ -6,42 +18,34 @@
     position:relative;
 }
 
+/* Title */
 h1{
     margin:auto;
     text-align: center;
 }
 
-.gameArea{
-    /* border-radius:10px; */
-    /* border:solid; */
-    background-image:url("../graphics_data/Scrabble_Board_OneLine.png");
-}
-
+/* Board */
 .board{
     margin-top: 30px;
-    /* width:100%; */
     width:1450px;
     max-width:1450px;
+    min-width:1450px;
 }
 
+/* Rack */
 .holder{
     margin-top: 5%;
     margin-left:25%;
     width:50%;
     height:50%;
-    /* position:relative; */
-    /* width:50%;
-    height:50%;
-    margin-top:10%;
-    left:25%; */
-    /* top:25vh; */
 }
 
+/* Pieces starting from left to right */
 .t1{
     position: absolute;
     width:3%;
     height:10%;
-    min-width:40px;
+    /* min-width:40px; */
     top:38%;
     left:29%; 
 }
@@ -100,11 +104,17 @@ h1{
     left:65%; 
 }
 
+/* Game Info */
 .info{
     margin-top: 15.5%;
-    background:black;
+    background:#2a2a2a;
     color:white;
     text-align: center;
+}
+
+/* Button */
+button {
+    background:#ceb92c;
 }
 
 

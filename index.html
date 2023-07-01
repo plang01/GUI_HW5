@@ -1,11 +1,13 @@
 <!-- 
     File: index.html
-    GUI Assignment: Use Jquery plugin to add tab and slider widget
+    GUI Assignment: Implement part of the game Scrabble with drag-and-drop
     Phat Lang, UMass Lowell Computer Science, Phat_Lang@student.uml.edu
-    What to submit: Readme file with Github URL and link to repository, a zip file contains the code 
-    Description: Modify existing codes to add in tab and slider sections
+    What to submit: Readme file with Github URL and link to repository, a zip file contains the code, 
+    and a writeup describing what's working and what's not
+    Description: Create a simple layout consist of the board, rack, and pieces. Below is the scoreboard
+    and button
     Copyright (c) 2023 by Phat Lang. All rights reserved. May be freely copied or
-    excerpted for educational purposes with credit to the author. Updated by Phat Lang on June 22 at 12:21 p.m
+    excerpted for educational purposes with credit to the author. Updated by Phat Lang on July 1 at 1:54 p.m
     References/Citations: I used W3Schools, Boostrap for references.  
 -->
 
@@ -19,42 +21,39 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="javascript/script.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    
     <title>Scrabble</title>
 </head>
 <body>
     <div id="container">
         <h1> Scrabble</h1>
+            <!-- Image of the board -->
             <img class="col-sm-12 board" src="graphics_data/Scrabble_Board_OneLine.png" alt="board">
-
+            
+            <!-- Image of the rack -->
             <div class="holder col-sm-12">
                 <img class="col-sm-12" src="graphics_data/scrabble-tile-holder-406774_640.png" alt="tile-holder">
             </div>
-            <!-- <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_A.jpg" draggable="false"> -->
-            <img class="t1" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_A.jpg" draggable="false" />
-            <img class="t2" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_B.jpg" draggable="false"/>
-            <img class="t3" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_C.jpg" draggable="false"/>
-            <img class="t4" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_D.jpg" draggable="false"/>
-            <img class="t5" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_E.jpg" draggable="false"/>
-            <img class="t6" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_F.jpg" draggable="false"/>
-            <img class="t7" src="graphics_data/Scrabble_Tiles/Scrabble_Tile_G.jpg" draggable="false"/>
-        <!-- </div> -->
 
-        <div class="col-sm-6 col-sm-offset-3 info">
-            <h3 class="col-sm-12 totalPoint"> Total Point: 0</h3>
-            <h3 class="col-sm-12 point"> Point: 0</h3>
-            <button class="btn-sm submit" onclick="submit()">Submit Word</button>
-            <button class="btn-sm restart" onclick="restart()">Restart Game</button>
-        </div>
-        <!-- <p>
-            Mouse pos: <b><span id="mouse-pos"></span></b>
-          </p> -->
+            <!-- Image of each piece -->
+            <img class="t1" draggable="false" />
+            <img class="t2" draggable="false"/>
+            <img class="t3" draggable="false"/>
+            <img class="t4" draggable="false"/>
+            <img class="t5"  draggable="false"/>
+            <img class="t6"  draggable="false"/>
+            <img class="t7"  draggable="false"/> 
+       
+            <!-- Game infos and buttons -->
+            <div class="col-sm-6 col-sm-offset-3 info">
+                <h3 class="col-sm-12 totalPoint"> Total Point: 0</h3>
+                <h3 class="col-sm-12 point"> Point: 0</h3>
+                <button class="btn-sm submit" onclick="submit()">Submit Word</button>
+                <button class="btn-sm restart" onclick="restart()">Restart Game</button>
+            </div>
     </div>
-    <!-- <p>
-        Mouse pos: <b><span id="mouse-pos"></span></b>
-      </p> -->
+
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <!-- <script src="javascript/script.js"></script> -->
+    <script src="javascript/script.js"></script>
 </body>
 </html>
